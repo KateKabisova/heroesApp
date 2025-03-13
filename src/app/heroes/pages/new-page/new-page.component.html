@@ -73,6 +73,7 @@
               formControlName="alt_img"
               required
             />
+
           </mat-form-field>
         </form>
 
@@ -97,6 +98,11 @@
           </button>
         </div>
 
+        <button mat-button color="primary" (click)="goBack()">
+          <mat-icon>arrow_back</mat-icon>
+          Lista Héroes
+        </button>
+
       </mat-card-content>
     </mat-card>
   </div>
@@ -109,6 +115,9 @@
 
   </div>
 </div>
+
+
+
 
 
 <!-- {{currentHero |json }} -->

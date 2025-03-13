@@ -113,6 +113,10 @@ export class NewPageComponent implements OnInit {
     // });
   }
 
+  goBack() {
+    this.router.navigate(['/heroes/list']);
+  }
+
 
 
   showSnackbar(message: string): void {
