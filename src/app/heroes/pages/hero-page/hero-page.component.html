@@ -33,14 +33,27 @@
         <mat-list-item>{{ hero.alter_ego }}</mat-list-item>
       </mat-list>
 
-      <button
-        mat-button
-        color="primary"
-        (click)="goBack()"
-      >
-      <mat-icon>arrow_back</mat-icon>
-        Lista Héroes
-      </button>
+
+      <div>
+      <mat-card-title>Encuentra productos de {{ hero.superhero }} en estas tiendas:</mat-card-title>
+      <br>
+        <button mat-raised-button color="primary mr-2" (click)="ordaShop(hero.superhero)"> La Orda</button>
+        <button mat-raised-button color="primary mr-2" *ngIf="hero.publisher === 'DC Comics'"
+          (click)="dcShop(hero.superhero)"> Dc Shop</button>
+        <button mat-raised-button color="primary mr-2" *ngIf="hero.publisher === 'Marvel Comics'"
+          (click)="marvelShop(hero.superhero)"> Marvel Shop</button>
+          <button mat-raised-button color="primary"
+          (click)="onFnac(hero.superhero)"> Fnac</button>
+
+
+      </div>
+
+       <br>
+
+        <button mat-button color="primary" (click)="goBack()">
+          <mat-icon>arrow_back</mat-icon>
+          Lista Héroes
+        </button>
 
     </mat-card-content>
 

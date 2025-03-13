@@ -5,7 +5,7 @@ import { HeroesService } from '../../services/heroes.service';
 @Component({
   selector: 'app-list-page',
   templateUrl: './list-page.component.html',
-  styles: ``
+  styleUrl: './list-page.component.scss'
 })
 export class ListPageComponent implements OnInit {
 

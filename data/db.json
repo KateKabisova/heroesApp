@@ -167,6 +167,15 @@
       "first_appearance": "Hey",
       "characters": "testteso",
       "alt_img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQACjLa8lt6RRmiTj7u7bc1guZ2Z7toyfuCIzaP3gm6kScLoSHLfi4SYJrX1ppXWelkg6M&usqp=CAU"
+    },
+    {
+      "id": "marvel-deadpool",
+      "superhero": "Deadpool",
+      "publisher": "Marvel Comics",
+      "alter_ego": "Wade Winston Wilson",
+      "first_appearance": "New Mutants (vol. 1) #98 (1991)",
+      "characters": "Wade Winston Wilson",
+      "alt_img": "https://cdn.marvel.com/u/prod/marvel/i/mg/8/90/5b0f168c10c3b/clean.jpg"
     }
   ]
 }

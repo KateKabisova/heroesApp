@@ -16,19 +16,23 @@ export class SearchPageComponent {
   public heroes: Hero[] = [];
   public selectedHero?: Hero;
 
+
   constructor(
     private heroesService: HeroesService,
+    private router: Router,
   ) { }
 
 
 
   searchHero(): void {
     const value: string = this.searchInput.value || '';
-
     this.heroesService.getSuggestions(value)
-      .subscribe(heroes => this.heroes = heroes);
+      .subscribe(heroes => {
+        this.heroes = heroes.filter(hero => hero.superhero.toLowerCase().includes(value))
+      });
 
   }
+
 
   onSelectedOption(event: MatAutocompleteSelectedEvent): void {
     if (!event.option.value) {
@@ -39,6 +43,8 @@ export class SearchPageComponent {
     const hero: Hero = event.option.value;
     this.searchInput.setValue(hero.superhero);
     this.selectedHero = hero;
+    this.router.navigate(['/heroes', this.selectedHero.id]);
+
 
   }
 

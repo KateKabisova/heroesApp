@@ -64,12 +64,19 @@ export class NewPageComponent implements OnInit {
     if (this.currentHero.id) {
       this.heroesService.updateHero(this.currentHero)
         .subscribe(hero => {
-          console.log('hola');
           this.showSnackbar(`${hero.superhero} updated!`);
 
         });
       return;
     }
+
+    const publisherPrefix = this.currentHero.publisher === "Marvel Comics" ? "marvel-" :
+                          this.currentHero.publisher === "DC Comics" ? "dc-" : "";
+
+    this.currentHero.id = publisherPrefix + this.currentHero.superhero.toLowerCase().replace(/\s+/g, "-");
+
+
+    console.log('this.currentHero', this.currentHero);
     this.heroesService.addHero(this.currentHero)
       .subscribe(hero => {
         this.router.navigate(['/heroes/edit', hero.id]);
@@ -85,14 +92,14 @@ export class NewPageComponent implements OnInit {
     });
 
     dialogRef.afterClosed()
-    .pipe(
-      filter( (result: boolean) => result ),
-      switchMap( () => this.heroesService.deleteHeroById( this.currentHero.id )),
-      filter( (wasDeleted: boolean) => wasDeleted ),
-    )
-    .subscribe(() => {
-      this.router.navigate(['/heroes']);
-    });
+      .pipe(
+        filter((result: boolean) => result),
+        switchMap(() => this.heroesService.deleteHeroById(this.currentHero.id)),
+        filter((wasDeleted: boolean) => wasDeleted),
+      )
+      .subscribe(() => {
+        this.router.navigate(['/heroes']);
+      });
 
 
     // dialogRef.afterClosed().subscribe(result => {

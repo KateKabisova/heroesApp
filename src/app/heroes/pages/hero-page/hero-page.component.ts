@@ -25,7 +25,6 @@ export class HeroPageComponent implements OnInit {
     ).subscribe(hero => {
       if (!hero) return this.router.navigate(['/heroes/list']);
       this.hero = hero;
-      console.log(hero);
       return
     })
 
@@ -33,6 +32,36 @@ export class HeroPageComponent implements OnInit {
 
   goBack() {
     this.router.navigate(['/heroes/list']);
+  }
+
+  ordaShop( superhero: string){
+    const heroName = superhero.toLowerCase();
+    const baseUrl = 'https://laorda.com/busqueda?controller=search&s=';
+    const searchUrl = `${baseUrl}${heroName}`;
+    window.open(searchUrl,'_blank');
+
+  }
+
+  dcShop(superhero: string){
+    const heroName = superhero.toLowerCase().replace(/ /g, "+");
+    const baseUrl = 'https://www.dc.com/search?q=';
+    const searchUrl = `${baseUrl}${heroName}`;
+    window.open(searchUrl,'_blank');
+  }
+
+  marvelShop(superhero: string){
+    const heroName = superhero.toLowerCase().replace(/ /g, "%20");
+    const baseUrl = 'https://www.marvel.com/search?limit=20&query=';
+    const searchUrl = `${baseUrl}${heroName}`;
+    window.open(searchUrl,'_blank');
+  }
+
+  onFnac(superhero: string){
+      const heroName = superhero.toLowerCase().replace(/ /g, "+");
+      const baseUrl = 'https://www.fnac.es/SearchResult/ResultList.aspx?Search=';
+      const searchUrl = `${baseUrl}${heroName}`;
+      window.open(searchUrl,'_blank');
+
   }
 
 

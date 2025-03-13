@@ -28,6 +28,7 @@ export class HeroesService {
 
 
   addHero(hero: Hero): Observable<Hero> {
+    console.log(hero);
     return this.http.post<Hero>(`${this.baseUrl}/heroes`, hero);
 
   }
@@ -47,12 +48,12 @@ export class HeroesService {
 
   }
 
-  deleteHeroById( id: string ): Observable<boolean> {
+  deleteHeroById(id: string): Observable<boolean> {
 
-    return this.http.delete(`${ this.baseUrl }/heroes/${ id }`)
+    return this.http.delete(`${this.baseUrl}/heroes/${id}`)
       .pipe(
-        map( resp => true ),
-        catchError( err => of(false) ),
+        map(resp => true),
+        catchError(err => of(false)),
       );
   }
 
